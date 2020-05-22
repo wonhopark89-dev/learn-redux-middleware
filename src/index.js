@@ -3,13 +3,20 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./modules";
+import { createLogger } from "redux-logger";
+
+const logger = createLogger();
 
 // 스토어 생성
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(
+  rootReducer,
+  // composeWithDevTools(),
+  applyMiddleware(logger)
+);
 
 ReactDOM.render(
   <Provider store={store}>
