@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/redux-counter/node_modules
+/redux-counter/build
+
+/redux-practice/node_modules
+/redux-practice/build
